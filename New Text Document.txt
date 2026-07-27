@@ -1,0 +1,182 @@
+<?php
+/**
+ * SIGMA ERP - Premium Dark Dashboard Footer
+ */
+?>
+<style>
+    /* CSS Variables භාවිතයෙන් Colors පාලනය */
+    :root {
+        --footer-bg: #09090b;       /* Deep rich dark background */
+        --border-color: #1e1e24;    /* Subtle border line */
+        --text-muted: #71717a;      /* Modern muted gray text */
+        --text-hover: #f4f4f5;      /* Crisp bright white for hover */
+        --accent-blue: #3b82f6;     /* Brand blue */
+        --accent-glow: #06b6d4;     /* Creative cyan glow */
+        --sidebar-width: 280px;
+    }
+
+    .custom-footer {
+        background-color: var(--footer-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 24px 40px;
+        margin-left: var(--sidebar-width);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    /* Left Side: Brand & Copyright */
+    .footer-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-weight: 400;
+    }
+
+    .footer-brand {
+        color: var(--accent-blue);
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.7px;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    /* Creative Hover Underline Effect */
+    .footer-brand::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: linear-gradient(90deg, var(--accent-blue), var(--accent-glow));
+        transition: width 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .footer-brand:hover {
+        color: #ffffff;
+    }
+
+    .footer-brand:hover::after {
+        width: 100%;
+    }
+
+    /* Right Side: Status & Links */
+    .footer-right {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+    }
+
+    /* System Status Tag */
+    .system-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background-color: rgba(16, 185, 129, 0.06);
+        border: 1px solid rgba(16, 185, 129, 0.15);
+        padding: 4px 12px;
+        border-radius: 30px;
+        color: #10b981;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+
+    /* Pulse animation for the secure dot */
+    .status-dot {
+        width: 6px;
+        height: 6px;
+        background-color: #10b981;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 0 8px #10b981;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    /* Footer Links */
+    .footer-links-group {
+        display: flex;
+        gap: 20px;
+    }
+
+    .footer-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-link:hover {
+        color: var(--text-hover);
+        transform: translateY(-1px);
+    }
+    
+    /* Responsive Breakpoints (Mobile friendly) */
+    @media (max-width: 992px) {
+        .custom-footer {
+            margin-left: 70px; /* Sidebar collapsed state එකට ගැලපෙන්න */
+            padding: 20px 24px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+        }
+        .footer-left {
+            flex-direction: column;
+            gap: 4px;
+        }
+        .footer-right {
+            flex-direction: column;
+            gap: 12px;
+        }
+    }
+</style>
+
+<footer class="custom-footer mt-auto">
+    <div class="footer-content">
+        <!-- Left Side: CopyRight -->
+        <div class="footer-left">
+            <span>&copy; <?php echo date('Y'); ?></span>
+            <a href="#" class="footer-brand">SIGMA ERP v2.0</a>
+            <span>• All Rights Reserved.</span>
+        </div>
+
+        <!-- Right Side: Status & Navigation -->
+        <div class="footer-right">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                <span>System Secure</span>
+            </div>
+            <div class="footer-links-group">
+                <a href="#" class="footer-link">Help Desk</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
